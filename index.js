@@ -18,6 +18,10 @@ class Driver {
                 return trip.driverId === this.id;
             }.bind(this)
         );
+        // OR 
+        // return store.trips.filter(trip => {
+        //   return trip.driverId == this.id;
+        // });
     }
 
     passengers() {
@@ -28,6 +32,10 @@ class Driver {
             thePassengers.push(trip.passenger());
         }
         return thePassengers;
+        // OR 
+        // return this.trips().map(trip => {
+        //   return trip.passenger();
+        // })
     }
 }
  
@@ -48,6 +56,10 @@ class Passenger {
                 return trip.passengerId === this.id;
             }.bind(this)
         );
+        // OR
+        // return store.trips.filter(trip => {
+        //   return trip.passengerId == this.id;
+        // });
     }
 
     drivers() {
@@ -57,6 +69,10 @@ class Passenger {
             theDrivers.push(trip.driver());
         }
         return theDrivers;
+        // OR
+        // return this.trips().map(trip => {
+        //   return trip.driver();
+        // });
     }
 }
 
@@ -78,6 +94,10 @@ class Trip {
                 return driver.id === this.driverId;
             }.bind(this)
         );
+        // OR 
+        // return store.drivers.find(driver => {
+        //   return driver.id === this.driverId;
+        // });
     }
 
     passenger() {
@@ -86,5 +106,9 @@ class Trip {
                 return passenger.id === this.passengerId;
             }.bind(this)
         );
+        // OR 
+        // return store.passengers.find(passenger => {
+        //   return passenger.id === this.passengerId;
+        // });
     }
 }
